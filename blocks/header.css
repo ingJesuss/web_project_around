@@ -1,0 +1,35 @@
+.header {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.header__container {
+  border-bottom: 1px solid rgba(84, 84, 84, 0.7);
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  margin: 28px 0 42px;
+  box-sizing: border-box;
+}
+
+.header__image {
+  width: 100%;
+  max-width: 120px;
+  height: auto;
+  margin-bottom: 32px;
+  margin-left: 27px;
+}
+
+/* media query */
+@media screen and (min-width: 768px) and (max-width: 1500px) {
+  .header__container {
+    max-width: 880px;
+    margin: 45px auto 40px;
+  }
+
+  .header__image {
+    margin-bottom: 41px;
+    max-width: 173px;
+  }
+}

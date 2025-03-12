@@ -1,0 +1,36 @@
+.footer {
+  display: flex;
+  margin: auto;
+  margin-top: 50px;
+  width: 100%;
+  max-width: 282px;
+}
+.footer__copyright {
+  color: #545454;
+  padding-bottom: 36px;
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 100%;
+}
+.footer__copyright-extra {
+  display: none;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1500px) {
+  .footer {
+    max-width: 880px;
+  }
+  .footer__copyright {
+    display: none;
+  }
+  .footer__copyright-extra {
+    display: block;
+    color: #545454;
+    padding-bottom: 36px;
+    font-family: "Inter", Arial, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 100%;
+  }
+}

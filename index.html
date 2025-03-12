@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <meta name="description" content="En esta pagina los usuarios podran añadir, eliminar o dar me gusta a las imagenes,ademas de editar el nombre de perfil y la ocupación.">
+    <meta name="keywords" content="Fotos alrededor del mundo,Mundo en imágenes,Imágenes del planeta Tierra">
+    <meta name="author" content="Jesús Henández López" />
+
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href=".//page/index.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <div class="header__container">
+          <img src=".//images/VectorTitle.jpg" alt="" class="header__image" />
+        </div>
+      </header>
+
+      <!-- Comienzo de contenido -->
+      <main class="content">
+        <!-- seccion de perfil -->
+
+        <section class="profile">
+          <div class="profile__container">
+            <img
+              src="./images/profile.jpg"
+              alt="imagen de perfil"
+              class="profile__image"
+            />
+            <!-- contenedor de perfil de usuario -->
+            <div class="profile__text-container">
+              <p class="profile__name">Jacques Cousteau</p>
+              <!-- boton para abrir el formulario -->
+              <button class="profile__btn"></button>
+              <p class="profile__job">Explorador</p>
+            </div>
+
+            <!-- boton para agregar -->
+            <button class="profile__btn-add">+</button>
+          </div>
+        </section>
+
+        <!-- Seccion para imagenes GRID -->
+        <section class="cards">
+          <div class="card__containers">
+            <div class="card__container">
+              <img
+                src="./images/edersse.jpg"
+                alt="Edersee,Alemania un arbol con fondo de estrellas"
+                class="card__container-image"
+              />
+              <div class="container__text">
+                <h3 class="card__container-title">Edersee, Alemania</h3>
+                <button class="card__container-btn"></button>
+              </div>
+            </div>
+
+            <!-- 2da card -->
+            <div class="card__container">
+              <img
+                src="./images/isla.jpg"
+                alt="imagen de una isla con el mar color turquesa"
+                class="card__container-image"
+              />
+              <div class="container__text">
+                <h3 class="card__container-title">McWay Falls</h3>
+
+                <button class="card__container-btn"></button>
+              </div>
+            </div>
+
+            <!-- 3ra card -->
+
+            <div class="card__container">
+              <img
+                src="./images/stairs.jpg"
+                alt="imagen de estrellas con lo que parece un meteorito en Italia"
+                class="card__container-image"
+              />
+              <div class="container__text">
+                <h3 class="card__container-title">Cima d'Asta Italia</h3>
+                <button class="card__container-btn"></button>
+              </div>
+            </div>
+            <!-- 4ta card -->
+            <div class="card__container">
+              <img
+                src="./images/cabos.jpg"
+                alt="Arco de Cabo San Lucas, imponente y majestuosa formación rocosa, un arco natural en la punta misma del extremo austral de la península de Baja California, en Baja California Sur en México."
+                class="card__container-image"
+              />
+              <div class="container__text">
+                <h3 class="card__container-title">
+                  Cabo San Lucas,Baja Califormin
+                </h3>
+                <button class="card__container-btn"></button>
+              </div>
+            </div>
+            <!-- 5ta card -->
+            <div class="card__container">
+              <img
+                src="./images/brasil.jpg"
+                alt="imagen en las alturas de brazil"
+                class="card__container-image"
+              />
+              <div class="container__text">
+                <h3 class="card__container-title">Rio de Janeiro, Brasil</h3>
+                <button class="card__container-btn"></button>
+              </div>
+            </div>
+            <!-- 6ta card -->
+            <div class="card__container">
+              <img
+                src="./images/islandia.jpg"
+                alt="Imagen de glaciales en islandia"
+                class="card__container-image"
+              />
+              <div class="container__text">
+                <h3 class="card__container-title">Islandia</h3>
+                <button class="card__container-btn"></button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Seccion Formulario -->
+        <section class="form">
+          <form id="form__profile-edit" class="form__profile">
+            <!-- boton cerrar -->
+
+            <button type="button" class="form__close-btn"></button>
+
+            <h3 class="form__title">Editar perfil</h3>
+            <input
+              type="text"
+              name="nameInput"
+              id="nameInput"
+              placeholder="Nombre"
+              class="form__input"
+            />
+            <input
+              type="text"
+              name="jobInput"
+              id="jobInput"
+              placeholder="Acerca de mi"
+              class="form__input"
+            />
+            <!-- boton para guardar -->
+            <button type="submit" class="form__submit-btn">Guardar</button>
+          </form>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p class="footer__copyright">&copy; 2025 Around The World - JHL</p>
+        <p class="footer__copyright-extra">&copy; 2025 Around The World - Jesús Hernández López<p>
+      </footer>
+    </div>
+    <script src=".//scripts/script.js"></script>
+  </body>
+</html>
