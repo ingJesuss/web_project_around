@@ -18,7 +18,7 @@
   border-top-right-radius: 10px;
 }
 
-.container__text {
+.card__container-text {
   display: grid;
   grid-template-columns: 90% 10%;
   width: 100%;
