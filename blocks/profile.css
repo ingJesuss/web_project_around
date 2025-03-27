@@ -28,7 +28,7 @@
   height: auto;
   margin-left: 19px;
   margin-right: 19px;
-  flex-wrap: wrap;
+  flex-wrap: wrap; 
 }
 
 .profile__name {
@@ -42,6 +42,8 @@
   line-height: 1.5;
   text-align: center;
   margin: 0 10px 14px 29px;
+  overflow: hidden;
+  text-overflow:ellipsis;
 }
 
 .profile__btn {
@@ -70,6 +72,8 @@
   color: #fff;
   margin: 0;
   margin-bottom: 36px;
+  overflow: hidden;
+  text-overflow:ellipsis;
 }
 
 .profile__btn-add {

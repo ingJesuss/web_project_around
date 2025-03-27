@@ -5,32 +5,29 @@
   width: 100%;
   max-width: 282px;
 }
-.footer__copyright {
+.footer{
   color: #545454;
   padding-bottom: 36px;
   font-family: "Inter", Arial, sans-serif;
   font-weight: 400;
   font-size: 18px;
-  line-height: 100%;
+  line-height: 1.5;
+  text-align: start;
 }
-.footer__copyright-extra {
-  display: none;
-}
+
 
 @media screen and (min-width: 768px) and (max-width: 1500px) {
   .footer {
     max-width: 880px;
   }
-  .footer__copyright {
-    display: none;
-  }
-  .footer__copyright-extra {
+ 
+  .footer {
     display: block;
     color: #545454;
     padding-bottom: 36px;
     font-family: "Inter", Arial, sans-serif;
     font-weight: 400;
     font-size: 18px;
-    line-height: 100%;
+    line-height: 1.5;
   }
 }

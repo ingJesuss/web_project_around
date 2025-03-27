@@ -1,10 +1,10 @@
-let openPopupBtn = document.querySelector(".profile__btn");
-let form = document.querySelector(".form__profile");
-let nameInput = document.querySelector("#nameInput");
-let jobInput = document.querySelector("#jobInput");
-let profileName = document.querySelector(".profile__name");
-let profileJob = document.querySelector(".profile__job");
-let closePopupBtn = document.querySelector(".form__close-btn");
+const openPopupBtn = document.querySelector(".profile__btn");
+const form = document.querySelector(".form");
+const nameInput = document.querySelector("#nameInput");
+const jobInput = document.querySelector("#jobInput");
+const profileName = document.querySelector(".profile__name");
+const profileJob = document.querySelector(".profile__job");
+const closePopupBtn = document.querySelector(".form__close-btn");
 
 
 /* funcion que activara/desactivara una clase para qu muestre el popup */
@@ -19,7 +19,7 @@ function openPopup() {
   toggleElement();
 }
 
-/* btn close */
+/* btn close  revisar para que solo cierre.*/
 function closePopup() {  
  toggleElement();
 } 
