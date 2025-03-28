@@ -4,8 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Around The World</title>
-    <meta name="description" content="En esta pagina los usuarios podran añadir, eliminar o dar me gusta a las imagenes,ademas de editar el nombre de perfil y la ocupación.">
-    <meta name="keywords" content="Fotos alrededor del mundo,Mundo en imágenes,Imágenes del planeta Tierra">
+    <meta
+      name="description"
+      content="En esta pagina los usuarios podran añadir, eliminar o dar me gusta a las imagenes,ademas de editar el nombre de perfil y la ocupación."
+    />
+    <meta
+      name="keywords"
+      content="Fotos alrededor del mundo,Mundo en imágenes,Imágenes del planeta Tierra"
+    />
     <meta name="author" content="Jesús Henández López" />
 
     <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
@@ -31,7 +37,7 @@
               class="profile__image"
             />
             <!-- contenedor de perfil de usuario -->
-            <div class="profile__text-container ">
+            <div class="profile__text-container">
               <p class="profile__name">Jacques Cousteau</p>
               <!-- boton para abrir el formulario -->
               <button class="profile__btn"></button>
@@ -45,127 +51,71 @@
 
         <!-- Seccion para imagenes GRID -->
         <section class="card">
+          <!-- contenedor principal de cards -->
           <div class="card__containers">
-            <div class="card__container">
-              <img
-                src="./images/edersse.jpg"
-                alt="Edersee,Alemania un arbol con fondo de estrellas"
-                class="card__container-image"
-              />
-              <div class="card__container-text">
-                <h3 class="card__container-title">Edersee, Alemania</h3>
-                <button class="card__container-btn"></button>
-              </div>
-            </div>
-
-            <!-- 2da card -->
-            <div class="card__container">
-              <img
-                src="./images/isla.jpg"
-                alt="imagen de una isla con el mar color turquesa"
-                class="card__container-image"
-              />
-              <div class="card__container-text">
-                <h3 class="card__container-title">McWay Falls</h3>
-
-                <button class="card__container-btn"></button>
-              </div>
-            </div>
-
-            <!-- 3ra card -->
-
-            <div class="card__container">
-              <img
-                src="./images/stairs.jpg"
-                alt="imagen de estrellas con lo que parece un meteorito en Italia"
-                class="card__container-image"
-              />
-              <div class="card__container-text">
-                <h3 class="card__container-title">Cima d'Asta Italia</h3>
-                <button class="card__container-btn"></button>
-              </div>
-            </div>
-            <!-- 4ta card -->
-            <div class="card__container">
-              <img
-                src="./images/cabos.jpg"
-                alt="Arco de Cabo San Lucas, imponente y majestuosa formación rocosa, un arco natural en la punta misma del extremo austral de la península de Baja California, en Baja California Sur en México."
-                class="card__container-image"
-              />
-              <div class="card__container-text">
-                <h3 class="card__container-title">
-                  Cabo San Lucas,Baja Califormin
-                </h3>
-                <button class="card__container-btn"></button>
-              </div>
-            </div>
-            <!-- 5ta card -->
-            <div class="card__container">
-              <img
-                src="./images/brasil.jpg"
-                alt="imagen en las alturas de brazil"
-                class="card__container-image"
-              />
-              <div class="card__container-text">
-                <h3 class="card__container-title">Rio de Janeiro, Brasil</h3>
-                <button class="card__container-btn"></button>
-              </div>
-            </div>
-            <!-- 6ta card -->
-            <div class="card__container">
-              <img
-                src="./images/islandia.jpg"
-                alt="Imagen de glaciales en islandia"
-                class="card__container-image"
-              />
-              <div class="card__container-text">
-                <h3 class="card__container-title">Islandia</h3>
-                <button class="card__container-btn"></button>
-              </div>
-            </div>
+            
           </div>
         </section>
 
         <!-- Seccion Formulario -->
         <section class="form">
-
           <div class="form__overlay"></div>
 
           <div class="form__container">
-            <!-- boton cerrar -->             
+            <!-- boton cerrar -->
             <button class="form__close-btn"></button>
-            <h3 class="form__title">Editar perfil</h3> 
+            <h3 class="form__title">Editar perfil</h3>
 
             <!-- FORMULARIO -->
             <form id="form__profile-edit" class="form__profile">
               <fieldset>
                 <input
-                type="text"
-                name="nameInput"
-                id="nameInput"
-                placeholder="Nombre"
-                class="form__input"
-              />
-              <input
-                type="text"
-                name="jobInput"
-                id="jobInput"
-                placeholder="Acerca de mi"
-                class="form__input"
-              />
+                  type="text"
+                  name="nameInput"
+                  id="nameInput"
+                  placeholder="Nombre"
+                  class="form__input"
+                />
+                <input
+                  type="text"
+                  name="jobInput"
+                  id="jobInput"
+                  placeholder="Acerca de mi"
+                  class="form__input"
+                />
               </fieldset>
-              
-              
-            <!-- boton para guardar -->
-            <button type="submit" class="form__submit-btn">Guardar</button>
-          </form>
-        </div>
-        </section>
 
+              <!-- boton para guardar -->
+              <button type="submit" class="form__submit-btn">Guardar</button>
+            </form>
+          </div>
+        </section>
       </main>
 
-      <footer class="footer">        
-        <p class="footer">&copy; 2025 Around The World - Jesús Hernández López<p>
+      <!-- template para grid de fotos -->
+      <template id="card__template">
+
+        <div class="card__container">
+          <img
+            src=""
+            alt=""
+            class="card__container-image"
+          />
+          <button class="card__delete-img"></button>
+
+          <div class="card__container-text">
+            <h3 class="card__container-title"></h3>
+            <button class="card__container-btn"></button>
+          </div>
+        </div>
+
+      </template>
+
+      <footer class="footer">
+        <p class="footer">
+          &copy; 2025 Around The World - Jesús Hernández López
+        </p>
+        <p></p>
       </footer>
     </div>
     <script src="./scripts/index.js"></script>

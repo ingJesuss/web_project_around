@@ -61,6 +61,18 @@
   cursor: pointer;
   opacity: 50%;
 }
+.card__delete-img{
+  background-image: url(../images/delete.jpg);
+  background-position: center;
+  background-repeat: repeat;
+  width: 21px;
+  height: 19px;
+  border: none;
+  background-color: #fff;
+  padding: 0;
+  text-decoration: none;
+  margin: auto;;
+}
 
 @media screen and (min-width: 768px) and (max-width: 1500px) {
   .card__containers {
