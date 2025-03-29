@@ -52,9 +52,7 @@
         <!-- Seccion para imagenes GRID -->
         <section class="card">
           <!-- contenedor principal de cards -->
-          <div class="card__containers">
-            
-          </div>
+          <div class="card__containers"></div>
         </section>
 
         <!-- Seccion Formulario -->
@@ -94,21 +92,19 @@
 
       <!-- template para grid de fotos -->
       <template id="card__template">
-
         <div class="card__container">
-          <img
-            src=""
-            alt=""
-            class="card__container-image"
-          />
-          <button class="card__delete-img"></button>
+          <!-- contenedor para la parte de arriba de la tarjeta imagen y btn delete -->
+          <div class="card__container-img">
+            <img src="" alt="" class="card__container-image" />
+            <button class="card__delete-img"></button>
+          </div>
 
+          <!-- contenedor para el titulo y el boton like -->
           <div class="card__container-text">
             <h3 class="card__container-title"></h3>
             <button class="card__container-btn"></button>
           </div>
         </div>
-
       </template>
 
       <footer class="footer">

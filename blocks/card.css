@@ -4,9 +4,12 @@
   max-width: 282px;
   height: auto;
   box-sizing: border-box;
+  position: relative;
 }
+
 .card__container {
   display: grid;
+
   margin-bottom: 20px;
 }
 
@@ -47,7 +50,6 @@
 .card__container-btn {
   background-image: url(../images/like.jpg);
   background-position: center;
-  background-repeat: repeat;
   width: 21px;
   height: 19px;
   border: none;
@@ -56,22 +58,36 @@
   text-decoration: none;
   margin: auto;
 }
-
 .card__container-btn:hover {
   cursor: pointer;
   opacity: 50%;
 }
-.card__delete-img{
+.card__container-img {
+  position: relative;
+}
+
+.card__delete-img {
+  position: absolute;
+  right: 15px;
+  top: 18px;
   background-image: url(../images/delete.jpg);
   background-position: center;
-  background-repeat: repeat;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 19px;
+  width: 18px;
+  background-color: #0e0b0b00;
+  border: none;
+}
+.card__delete-img:hover {
+  cursor: pointer;
+  opacity: 50%;
+}
+.card__btn-like {
+  background-image: url(../images/blackHeart.jpg);
+  background-position: center;
   width: 21px;
   height: 19px;
-  border: none;
-  background-color: #fff;
-  padding: 0;
-  text-decoration: none;
-  margin: auto;;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1500px) {

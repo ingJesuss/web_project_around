@@ -7,6 +7,8 @@ const profileJob = document.querySelector(".profile__job");
 const closePopupBtn = document.querySelector(".form__close-btn");
 const cardContainer = document.querySelector(".card__containers");
 
+
+
 /* array de objetos de imagenes con su titulo y descripción */
 const initialCards = [
   {
@@ -43,8 +45,7 @@ const initialCards = [
   },
 ];
 
-
-initialCards.forEach(card => {
+initialCards.forEach((card) => {
   const cardTemplate = document.querySelector("#card__template").content;
   const cardElement = cardTemplate
     .querySelector(".card__container")
@@ -52,7 +53,7 @@ initialCards.forEach(card => {
   cardElement.querySelector(".card__container-image").src = card.link;
   cardElement.querySelector(".card__container-image").alt = card.description;
   cardElement.querySelector(".card__container-title").textContent = card.name;
-
+  /* mostrar card */
   cardContainer.appendChild(cardElement);
 });
 
@@ -62,11 +63,12 @@ function toggleElement() {
 }
 
 /* función que abre la ventana emergente (formulario) trayendo el valor de los inputs desde el objeto correspondiente*/
-function openPopup() {
-  nameInput.value = profileName.textContent;
-  jobInput.value = profileJob.textContent;
-  toggleElement();
+function openPopup() {  
+    nameInput.value = profileName.textContent;
+    jobInput.value = profileJob.textContent;
+    toggleElement();  
 }
+
 
 /* btn close  revisar para que solo cierre.*/
 function closePopup() {
@@ -83,6 +85,36 @@ function submitForm(e) {
   toggleElement();
 }
 
-openPopupBtn.addEventListener("click", openPopup);
+/* funcion que itera para cada btn-like */
+function like() {
+  const likeButtons = document.querySelectorAll(".card__container-btn");
+  likeButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      button.classList.toggle("card__btn-like");
+    });
+  });
+}
+
+like();
+
+/* Función para quitar una card */
+function deleteCard() {
+  const deleteButtons = document.querySelectorAll(".card__delete-img");
+  deleteButtons.forEach((trash) => {
+    trash.addEventListener("click", (e) => {
+      const cardRemove = e.target.closest(".card__container");
+
+      cardRemove.remove(); // Elimina el contenedor de la imagen
+    });
+  });
+}
+deleteCard();
+
+
+
+openPopupBtn.addEventListener("click", function(e) {
+  console.log(e.target);
+  openPopup(e);
+});
 closePopupBtn.addEventListener("click", closePopup);
 form.addEventListener("submit", submitForm);
