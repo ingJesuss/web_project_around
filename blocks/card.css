@@ -5,20 +5,20 @@
   height: auto;
   box-sizing: border-box;
   position: relative;
-}
-
-.card__container {
   display: grid;
-
-  margin-bottom: 20px;
+  gap: 20px 17px;
+  
 }
-
+.card__container-img {
+  height: 282px;
+} 
 .card__container-image {
   width: 100%;
   max-width: 282px;
   height: 282px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  cursor: pointer;
 }
 
 .card__container-text {
@@ -31,7 +31,6 @@
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
 }
-
 .card__container-title {
   font-family: "Inter", Arial, sans-serif;
   font-weight: 900;
@@ -90,11 +89,11 @@
   height: 19px;
 }
 
+
 @media screen and (min-width: 768px) and (max-width: 1500px) {
   .card__containers {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 17px 20px;
     margin-top: 50px;
     max-width: 880px;
   }

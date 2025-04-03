@@ -54,6 +54,20 @@
           <!-- contenedor principal de cards -->
           <div class="card__containers"></div>
         </section>
+        <!-- modal para la ventana emergente de la imagen -->
+        <section class="modal">
+          <div class="modal__overlay"></div>
+
+          <div class="modal__container">
+
+            <button class="modal__button-close"></button>
+            <div class="modal__card">
+              <img src="" alt="" class="modal__card-image" />
+            </div>
+            <h3 class="modal__title"></h3>
+            
+          </div>
+        </section>
 
         <!-- Seccion Formulario -->
         <section class="form">
@@ -62,29 +76,29 @@
           <div class="form__container">
             <!-- boton cerrar -->
             <button class="form__close-btn"></button>
-            <h3 class="form__title">Editar perfil</h3>
+            <h3 class="form__title"></h3>
 
             <!-- FORMULARIO -->
-            <form id="form__profile-edit" class="form__profile">
-              <fieldset>
+            <form class="form__profile">
+              <fieldset class="form__date">
                 <input
                   type="text"
                   name="nameInput"
                   id="nameInput"
-                  placeholder="Nombre"
+                  placeholder=""
                   class="form__input"
                 />
                 <input
                   type="text"
                   name="jobInput"
                   id="jobInput"
-                  placeholder="Acerca de mi"
+                  placeholder=""
                   class="form__input"
                 />
               </fieldset>
 
               <!-- boton para guardar -->
-              <button type="submit" class="form__submit-btn">Guardar</button>
+              <button type="submit" class="form__submit-btn"></button>
             </form>
           </div>
         </section>

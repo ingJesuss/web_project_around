@@ -16,7 +16,7 @@
   opacity: 0.9;
 }
 
-.form__container {
+ .form__container {
   position: relative;
   top: 0;
   left: 0;
@@ -34,7 +34,7 @@
   border-radius: 10px;
 }
 
-fieldset {
+.form__date {
   margin-top: 76px;
   border: none;
 }

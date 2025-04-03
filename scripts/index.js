@@ -1,13 +1,17 @@
 const openPopupBtn = document.querySelector(".profile__btn");
+const closePopupBtn = document.querySelector(".form__close-btn");
+/* selectores para form */
 const form = document.querySelector(".form");
 const nameInput = document.querySelector("#nameInput");
 const jobInput = document.querySelector("#jobInput");
 const profileName = document.querySelector(".profile__name");
 const profileJob = document.querySelector(".profile__job");
-const closePopupBtn = document.querySelector(".form__close-btn");
+const btnChangeImage = document.querySelector(".profile__btn-add");
+const btnCreateCard = document.querySelector(".form__submit-btn");
+const formTitle = document.querySelector(".form__title");
+/* Selectores para template */
 const cardContainer = document.querySelector(".card__containers");
-
-
+const cardTemplate = document.querySelector("#card__template").content;
 
 /* array de objetos de imagenes con su titulo y descripción */
 const initialCards = [
@@ -45,76 +49,141 @@ const initialCards = [
   },
 ];
 
-initialCards.forEach((card) => {
-  const cardTemplate = document.querySelector("#card__template").content;
-  const cardElement = cardTemplate
-    .querySelector(".card__container")
-    .cloneNode(true);
-  cardElement.querySelector(".card__container-image").src = card.link;
-  cardElement.querySelector(".card__container-image").alt = card.description;
-  cardElement.querySelector(".card__container-title").textContent = card.name;
-  /* mostrar card */
-  cardContainer.appendChild(cardElement);
-});
+function popupCard(title, link, description) {
+  const modalContainer = document.querySelector(".modal");
+  modalContainer.classList.toggle("modal__open");
+  const modalImage = document.querySelector(".modal__card-image");
+  const modalTitle = document.querySelector(".modal__title");
+  const modalBtnClose = document.querySelector(".modal__button-close");
+  modalImage.src = link;
+  modalImage.alt = description;
+  modalTitle.innerHTML = title;
+  
+  /* Para que la pantalla suba automaticamente cuando se abra el modal */
+  window.scrollTo({ top: 0, behavior: "smooth" });
+
+  modalBtnClose.addEventListener("click", () => {
+    modalContainer.classList.remove("modal__open");
+  });
+}
+
+/* Iteramos por c/u de los objetos del array y clonamos */
+function cards() {
+  initialCards.forEach((card) => {
+    const cardElement = cardTemplate
+      .querySelector(".card__container")
+      .cloneNode(true);
+
+    const imageElement = cardElement.querySelector(".card__container-image");
+    imageElement.src = card.link;
+    imageElement.alt = card.description;
+    cardElement.querySelector(".card__container-title").textContent = card.name;
+
+    /* mostrar card */
+    imageElement.addEventListener("click", () =>
+      popupCard(card.name, card.link, card.description)
+    );
+    cardContainer.appendChild(cardElement);
+  });
+}
+cards();
+
+/* funcion para manejar like y delete del contenedtor card usando event delegation */
+function handlerButtonsCard() {
+  cardContainer.addEventListener("click", (e) => {
+    if (e.target.classList.contains("card__container-btn")) {
+      e.target.classList.toggle("card__btn-like");
+    }
+
+    if (e.target.classList.contains("card__delete-img")) {
+      e.target.closest(".card__container").remove();
+    }
+
+    console.log(e.target.className);
+  });
+}
 
 /* funcion que activara/desactivara una clase para qu muestre el popup */
 function toggleElement() {
   form.classList.toggle("open__popup");
 }
 
-/* función que abre la ventana emergente (formulario) trayendo el valor de los inputs desde el objeto correspondiente*/
-function openPopup() {  
-    nameInput.value = profileName.textContent;
-    jobInput.value = profileJob.textContent;
-    toggleElement();  
-}
-
-
 /* btn close  revisar para que solo cierre.*/
 function closePopup() {
   toggleElement();
 }
 
-/* function para actualizar la información de popup se crean 2 variables para almacenar el valor y se muestra en el elemento correspondiente */
-function submitForm(e) {
-  e.preventDefault();
-  let newTitle = nameInput.value;
-  let newJob = jobInput.value;
-  profileName.innerText = newTitle;
-  profileJob.innerText = newJob;
+/* función que abre la ventana emergente (formulario) trayendo el valor de los inputs desde el objeto correspondiente*/
+
+function openPopupProfile() {
+  formTitle.innerText = "Editar Perfil";
+  nameInput.value = profileName.textContent;
+  nameInput.placeholder = "Nombre";
+  jobInput.value = profileJob.textContent;
+  jobInput.placeholder = "Acerca de mi";
+  jobInput.type = "text";
+  btnCreateCard.textContent = "Guardar";
   toggleElement();
 }
 
-/* funcion que itera para cada btn-like */
-function like() {
-  const likeButtons = document.querySelectorAll(".card__container-btn");
-  likeButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      button.classList.toggle("card__btn-like");
-    });
-  });
+/* Funcion para abrir el pop de nueva imagen */
+function openPopupNewImage() {
+  nameInput.value = "";
+  nameInput.placeholder = "Titulo";
+  formTitle.innerText = "Nuevo Lugar";
+  jobInput.value = "";
+  jobInput.placeholder = "Enlace de la imagen";
+  jobInput.type = "url";
+  btnCreateCard.textContent = "Crear";
+  toggleElement();
 }
 
-like();
+/* funcion para formulario de nueva card */
+function addNewCard() {
+  if (!jobInput.value.trim()) {
+    alert("No se puede crear una tarjeta sin imagen.");
+    return;
+  }
+  const cardElement = cardTemplate
+    .querySelector(".card__container")
+    .cloneNode(true);
+  const imageElement = cardElement.querySelector(".card__container-image");
+  const titleElement = cardElement.querySelector(".card__container-title");
 
-/* Función para quitar una card */
-function deleteCard() {
-  const deleteButtons = document.querySelectorAll(".card__delete-img");
-  deleteButtons.forEach((trash) => {
-    trash.addEventListener("click", (e) => {
-      const cardRemove = e.target.closest(".card__container");
+  imageElement.src = jobInput.value;
+  imageElement.alt = nameInput.value;
+  titleElement.textContent = nameInput.value;
 
-      cardRemove.remove(); // Elimina el contenedor de la imagen
-    });
+  imageElement.addEventListener("click", () => {
+    popupCard(titleElement.textContent, imageElement.src, imageElement.alt);
   });
+
+  /* mostrar card */
+  cardContainer.prepend(cardElement);
 }
-deleteCard();
 
+/* funcion para formulario edita perfil */
+function editFormProfile() {
+  let newTitle = nameInput.value.trim();
+  let newJob = jobInput.value.trim();
+  profileName.innerText = newTitle;
+  profileJob.innerText = newJob;
+}
+/* function para actualizar la información de popup se crean 2 variables para almacenar el valor y se muestra en el elemento correspondiente */
+function submitForm(e) {
+  e.preventDefault();
+  const serchTitle = form.querySelector(".form__title").textContent;
+  if (serchTitle === "Editar Perfil") {
+    editFormProfile();
+  }
+  if (serchTitle === "Nuevo Lugar") {
+    addNewCard();
+  }
+  closePopup();
+}
 
-
-openPopupBtn.addEventListener("click", function(e) {
-  console.log(e.target);
-  openPopup(e);
-});
+handlerButtonsCard();
+openPopupBtn.addEventListener("click", openPopupProfile);
+btnChangeImage.addEventListener("click", openPopupNewImage);
 closePopupBtn.addEventListener("click", closePopup);
 form.addEventListener("submit", submitForm);
