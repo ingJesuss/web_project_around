@@ -59,14 +59,12 @@
           <div class="modal__overlay"></div>
 
           <div class="modal__container">
-
             <button class="modal__button-close"></button>
-            
+
             <div class="modal__card">
               <img src="" alt="" class="modal__card-image" />
               <h3 class="modal__title"></h3>
             </div>
-            
           </div>
         </section>
 
@@ -80,22 +78,28 @@
             <h3 class="form__title"></h3>
 
             <!-- FORMULARIO -->
-            <form class="form__profile">
+            <form class="form__popup" novalidate>
               <fieldset class="form__date">
-                <input
-                  type="text"
-                  name="nameInput"
-                  id="nameInput"
-                  placeholder=""
-                  class="form__input"
-                />
-                <input
-                  type="text"
-                  name="jobInput"
-                  id="jobInput"
-                  placeholder=""
-                  class="form__input"
-                />
+                  <input
+                    type="text"
+                    name="nameInput"
+                    id="nameInput"
+                    placeholder=""
+                    class="form__input"
+                    required
+                  />
+                  <span class="nameInput-error form__input-error"></span>
+                
+                  <input
+                    type="text"
+                    name="jobInput"
+                    id="jobInput"
+                    placeholder=""
+                    class="form__input"
+                    required
+                  />
+                  <span class="jobInput-error form__input-error"></span>
+                
               </fieldset>
 
               <!-- boton para guardar -->
@@ -129,6 +133,6 @@
         <p></p>
       </footer>
     </div>
-    <script src="./scripts/index.js"></script>
+    <script src="./scripts/index.js" type="module"></script>
   </body>
 </html>
