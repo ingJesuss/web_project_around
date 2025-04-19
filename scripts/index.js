@@ -59,6 +59,7 @@ function popupCard(title, link, description) {
   const modalImage = document.querySelector(".modal__card-image");
   const modalTitle = document.querySelector(".modal__title");
   const modalBtnClose = document.querySelector(".modal__button-close");
+  const modalOverlay = document.querySelector(".modal__overlay")
   modalImage.src = link;
   modalImage.alt = description;
   modalTitle.innerHTML = title;
@@ -68,6 +69,16 @@ function popupCard(title, link, description) {
 
   modalBtnClose.addEventListener("click", () => {
     modalContainer.classList.remove("modal__open");
+  });
+  modalOverlay.addEventListener("click", (e) => {
+    if (e.target === modalOverlay) {
+      modalContainer.classList.remove("modal__open");
+    }
+  }); 
+  document.addEventListener("keydown", (e) => {
+   if (e.key === "Escape") {
+    modalContainer.classList.remove("modal__open");
+   }
   });
 }
 
@@ -103,6 +114,7 @@ function handlerButtonsCard() {
       e.target.closest(".card__container").remove();
     }
   });
+  
 }
 
 /* funcion que activara/desactivara una clase para qu muestre el popup */
@@ -112,16 +124,18 @@ function toggleElement() {
 
 /* btn close popup.*/
 function closePopup() {
-  toggleElement();
+    toggleElement();
+    
 }
 
-// función para cerrar Popup haciendo click fuera de el fromulario
+
+// función para cerrar Popup haciendo click fuera de el fromulario o con ESC
 const popupOverlay = () => {
   formOverlay.addEventListener("click", (e) => {
     if (e.target === formOverlay) {
       closePopup();
     }
-  });
+  });  
 
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
@@ -137,6 +151,11 @@ const popupOverlay = () => {
 /* función que abre la ventana emergente (formulario) trayendo el valor de los inputs desde el objeto correspondiente*/
 
 function openPopupProfile() {
+  const error= form.querySelectorAll(".form__input-error");
+  error.forEach((error) => { 
+    error.textContent="";
+    error.classList.remove("form__error_visible");
+  });
   formTitle.innerText = "Editar Perfil";
   form.classList.add("perfil");
   nameInput.value = profileName.textContent;
@@ -157,6 +176,12 @@ function openPopupProfile() {
 
 /* Funcion para abrir el pop de nueva imagen */
 function openPopupNewImage() {
+  const error= form.querySelectorAll(".form__input-error");
+  error.forEach((error) => { 
+    error.textContent="";
+    error.classList.remove("form__error_visible");
+  });
+  
   formTitle.innerText = "Nuevo Lugar";
   nameInput.value = "";
   nameInput.placeholder = "Titulo";
@@ -220,8 +245,11 @@ popupOverlay();
 openPopupBtn.addEventListener("click", openPopupProfile);
 btnChangeImage.addEventListener("click", openPopupNewImage);
 closePopupBtn.addEventListener("click", closePopup);
-/* form.addEventListener("submit", submitForm); */
 
+
+
+
+//objeto de formulario
 enableValidation({
   //Selector
   formSelector: ".form__popup",

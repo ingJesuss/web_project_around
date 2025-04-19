@@ -53,6 +53,7 @@
   right: -30px;
   top: -40px;
   border: none;
+  cursor: pointer;
 }
 .modal__title {
   font-family: "Inter", Arial, sans-serif;

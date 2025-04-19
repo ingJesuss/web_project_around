@@ -25,14 +25,13 @@ const checkInputInvalid = (inputElement, config) => {
   }
 };
 
-/* const hasInputInvalid = (inputList) => {
-  return btnh;
-}; */
+const hasInputInvalid = (inputList) => {
+  return inputList.every((inputElement) => inputElement.validity.valid);  
+}; 
 
 const toggleButtonState = (inputList,buttonElement,config) => {
-  const btnh =  inputList.every((inputElement) => inputElement.validity.valid);  
-    console.log(btnh);
-  if (btnh) {
+    
+  if (hasInputInvalid(inputList)) {
     buttonElement.classList.remove(config.inactiveButtonClass);
     buttonElement.disabled=false;
   } else {
@@ -60,6 +59,8 @@ const setEventListener = (formElement, config) => {
     e.preventDefault();
     submitForm();
     formElement.reset();
+    buttonElement.classList.add(config.inactiveButtonClass);
+    buttonElement.disabled=true;
 
   });
 };
