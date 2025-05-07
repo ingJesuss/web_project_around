@@ -9,9 +9,6 @@
   gap: 20px 17px;
   
 }
-.card__container-img {
-  height: 282px;
-} 
 .card__container-image {
   width: 100%;
   max-width: 282px;
@@ -20,7 +17,6 @@
   border-top-right-radius: 10px;
   cursor: pointer;
 }
-
 .card__container-text {
   display: grid;
   grid-template-columns: 90% 10%;
@@ -63,6 +59,9 @@
 }
 .card__container-img {
   position: relative;
+  height: 282px;
+  overflow: hidden;
+  
 }
 
 .card__delete-img {
@@ -99,4 +98,5 @@
     max-width: 880px;
   }
 }
+ 
  

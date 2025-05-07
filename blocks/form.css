@@ -79,6 +79,12 @@
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
+.form__input:focus {
+  outline-color: #0d9c60e0;
+  outline-style: groove;
+  outline-width: 3px;
+}
+
 
 .form__input-error{ 
   display: block;  

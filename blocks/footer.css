@@ -4,8 +4,6 @@
   margin-top: 50px;
   width: 100%;
   max-width: 282px;
-}
-.footer{
   color: #545454;
   padding-bottom: 36px;
   font-family: "Inter", Arial, sans-serif;
@@ -17,11 +15,9 @@
 
 
 @media screen and (min-width: 1280px) {
+  
   .footer {
     max-width: 880px;
-  }
- 
-  .footer {
     display: block;
     color: #545454;
     padding-bottom: 36px;

@@ -36,6 +36,37 @@
   height: auto;
   min-height: 310px;
   max-height: 540px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.modal__card::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 10px;
+  pointer-events: none;
+
+ 
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 255, 255, 0.2),
+    transparent 40%
+  );
+ 
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.603), 0 0 40px rgba(0, 128, 255, 0.4),
+    0 0 80px rgba(0, 255, 255, 0.2), inset 0 0 20px rgba(0, 255, 255, 0.2);
+
+  animation: kiAura 8.5s ease-in-out infinite;
+
+  filter: blur(1px);
+}
+@keyframes kiAura {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+ 
 }
 
 .modal__open {
