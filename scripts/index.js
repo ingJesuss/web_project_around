@@ -69,7 +69,7 @@ cards();
 
 
 /* funcion que agrega nueva carta contine logica de modal card  tomamos los valores que el usuario ingresa en el formulario.*/
-function addNewCard() {
+export function addNewCard() {
   const formDate = {
     name : nameInput.value,
     link : jobInput.value,
@@ -88,9 +88,8 @@ function toggleElement() {
 }
 
 /* btn close popup.*/
-function closePopup() {
-    toggleElement();
-    
+export function closePopup() {
+    toggleElement();    
 }
 
 
@@ -172,7 +171,7 @@ function editFormProfile() {
 }
 
 /* function que compara el titulo del formulario para abrir el adecuado  */
-export function submitForm() { 
+ export function submitForm() { 
 
   const serchTitle = form.querySelector(".form__title").textContent;
   if (serchTitle === "Editar Perfil") {
@@ -184,29 +183,19 @@ export function submitForm() {
   
   formPopup.reset();  
   closePopup();
-}
+} 
 
+formPopup.addEventListener("submit" , (e) => {
+  e.preventDefault();
+  submitForm();
+});
+ 
 
 popupOverlay();
 openPopupBtn.addEventListener("click", openPopupProfile);
 btnChangeImage.addEventListener("click", openPopupNewImage);
 closePopupBtn.addEventListener("click", closePopup);
 
-
-
-
-//objeto de formulario
-/*  enableValidation({
-  //Selector
-  formSelector: ".form__popup",
-  inputSelector: ".form__input",
-  submitButtonSelector: ".form__submit-btn",
-  //CLASES
-  inactiveButtonClass: "form__button_disabled",
-  inputErrorClass: "form__input-error",
-  errorClass: "form__error_visible",
-}); */
- 
 const config = {
   //Selector
   formSelector: ".form__popup",

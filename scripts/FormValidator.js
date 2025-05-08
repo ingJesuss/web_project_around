@@ -1,13 +1,11 @@
-import { submitForm } from "./index.js";
 
 //config almacena configuración de clases y selectores que se encuentra en index.js
-
 export class FormValidator {
   constructor(data, formElement) {
     this.config = data;
     this.formElement = formElement;
   }
-  
+
   _showError(inputElement) {
     const errorMessage = inputElement.validationMessage;
     const errorElement = document.querySelector(`.${inputElement.id}-error`);
@@ -52,26 +50,27 @@ export class FormValidator {
     const inputList = Array.from(
       this.formElement.querySelectorAll(this.config.inputSelector)
     );
-    const buttonElement = this.formElement.querySelector(
-      this.config.submitButtonSelector
-    );    
-
+   
+    this._toggleButtonState(inputList);
     inputList.forEach((inputElement) => {
       inputElement.addEventListener("input", () => {
-        this._checkInputInvalid(inputElement);
         this._toggleButtonState(inputList);
+        this._checkInputInvalid(inputElement);
       });
     });
-    this.formElement.addEventListener("submit" , (e) => {
+    this.formElement.addEventListener("submit", (e) => {
       e.preventDefault();
-      submitForm();
-      
-    this.formElement.reset();
+     this._disabledButton();
+    });
+  }
+  _disabledButton() {
+    const buttonElement = this.formElement.querySelector(
+      this.config.submitButtonSelector
+    ); 
     buttonElement.classList.add(this.config.inactiveButtonClass);
     buttonElement.disabled = true;
-    })
   }
-
+ 
   enableValidation() {
     this._setEventListener();
   }
