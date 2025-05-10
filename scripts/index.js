@@ -196,6 +196,8 @@ openPopupBtn.addEventListener("click", openPopupProfile);
 btnChangeImage.addEventListener("click", openPopupNewImage);
 closePopupBtn.addEventListener("click", closePopup);
 
+
+//objeto que se utiliza en FormValidator.js para la validación de el formulario.
 const config = {
   //Selector
   formSelector: ".form__popup",
@@ -207,5 +209,7 @@ const config = {
   errorClass: "form__error_visible",
 };
 
+/*nueva instancia de formulario declaramos y asignamos un valor a la variable, donde pasamos la nueva instancia importada de FormValidator y como parametro pasamos config, que es la propiedad this.config=data y el segundo argumento es el nombre del formulario. 
+Despues llamamos al método enableValidation() en la instancia formvalidator*/
 const formValidator = new FormValidator(config,formPopup);
 formValidator.enableValidation();

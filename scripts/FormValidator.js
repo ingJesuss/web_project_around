@@ -1,11 +1,13 @@
 
-//config almacena configuración de clases y selectores que se encuentra en index.js
+//config almacena configuración de clases y selectores que se encuentra en index.js mientras que formElement es el formulario que se va a validar.
+
 export class FormValidator {
   constructor(data, formElement) {
     this.config = data;
     this.formElement = formElement;
   }
 
+  /* metodo que muestra el elemento erroneo y notifica al usuario */
   _showError(inputElement) {
     const errorMessage = inputElement.validationMessage;
     const errorElement = document.querySelector(`.${inputElement.id}-error`);
@@ -15,13 +17,14 @@ export class FormValidator {
     errorElement.classList.add(this.config.errorClass);
   }
 
+//metodo que oculta el mensaje de error cuando cumple con los parametros establecidos 
   _hideError(inputElement) {
     const errorElement = document.querySelector(`.${inputElement.id}-error`);
     inputElement.classList.remove(this.config.inputErrorClass);
     errorElement.classList.remove(this.config.errorClass);
     errorElement.textContent = "";
   }
-
+//metodo condicional que verifica si los elementos input sean validos para mostrar u ocultar el mensaje.
   _checkInputInvalid(inputElement) {
     if (inputElement.validity.valid) {
       this._hideError(inputElement);
@@ -29,6 +32,7 @@ export class FormValidator {
       this._showError(inputElement);
     }
   }
+  
   _hasInputInvalid(inputList) {
     return inputList.every((inputElement) => inputElement.validity.valid);
   }
