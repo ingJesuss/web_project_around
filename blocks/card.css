@@ -17,6 +17,18 @@
   border-top-right-radius: 10px;
   cursor: pointer;
 }
+.card__container-img {
+  position: relative;
+  height: 282px;
+  overflow: hidden; 
+}
+.card__container-img:hover {
+  cursor: pointer;
+  opacity: 0.8;
+  transition: all 0.3s ease-in-out;
+  transform: scale(1.02);
+}
+
 .card__container-text {
   display: grid;
   grid-template-columns: 90% 10%;
@@ -56,12 +68,6 @@
 .card__container-btn:hover {
   cursor: pointer;
   opacity: 50%;
-}
-.card__container-img {
-  position: relative;
-  height: 282px;
-  overflow: hidden;
-  
 }
 
 .card__delete-img {

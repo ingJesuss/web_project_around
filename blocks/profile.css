@@ -20,6 +20,12 @@
   border-radius: 100%;
   margin-bottom: 26px;
 }
+.profile__image:hover { 
+  opacity: 0.8;
+  transition: all 0.3s ease-in-out;
+  transform: scale(1.2);
+}
+
 .profile__text-container {
   display: flex;
   justify-content: center;
@@ -44,6 +50,7 @@
   margin: 0 10px 14px 29px;
   overflow: hidden;
   text-overflow:ellipsis;
+ 
 }
 
 .profile__btn {

@@ -1,11 +1,12 @@
-import {modalCard} from "./utils.js"
+
 
 export class Card {
-  constructor(data, cardSelector) {
+  constructor(data, cardSelector,handleCardClick) {
     this.name = data.name;
     this.link = data.link;
     this.description = data.description;
     this.cardSelector = cardSelector;
+    this.handleCardClick = handleCardClick;
   }
 
   getTemplate() {
@@ -19,20 +20,18 @@ export class Card {
   setEventListener() {
     this.buttonLike.addEventListener("click", () => this.handleLike() );
     this.buttonDelete.addEventListener("click", () =>  this.handleDelete());
-    this.cardImage.addEventListener("click" , () =>  this.openModal());
+    this.cardImage.addEventListener("click", () => {
+    this.handleCardClick(this.link, this.description, this.name);
+    });
   }
 
   handleLike() {
     this.buttonLike.classList.toggle("card__btn-like");
   }
+  
   handleDelete() {
     this.card.remove();
   } 
-
-  openModal() {
-    modalCard(this.name, this.link, this.description);
-  }
-  
   
   generateCard() {
     this.card = this.getTemplate();
@@ -43,13 +42,9 @@ export class Card {
     
     this.cardTitle.textContent = this.name;
     this.cardImage.src = this.link;
-    this.cardImage.alt = this.description;
-    
+    this.cardImage.alt = this.description;    
     this.setEventListener();
-
     return this.card;
   }
- 
-
 }
 

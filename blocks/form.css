@@ -122,7 +122,8 @@
 } 
 
 .open__popup {
-  display: block;
+  display: block !important;
+  
 }
 
 
