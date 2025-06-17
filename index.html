@@ -21,7 +21,11 @@
     <div class="page">
       <header class="header">
         <div class="header__container">
-          <img src="./images/VectorTitle.jpg" alt="logo the Around the U.S. " class="header__image" />
+          <img
+            src="./images/VectorTitle.jpg"
+            alt="logo the Around the U.S. "
+            class="header__image"
+          />
         </div>
       </header>
 
@@ -31,17 +35,22 @@
 
         <section class="profile">
           <div class="profile__container">
-            <img
-              src="./images/profile.jpg"
-              alt="imagen de perfil"
-              class="profile__image"
-            />
+            
+            <!-- contenedor para la imagen de usuario -->
+            <div class="profile__image-container">
+              <img src=". " alt="imagen de perfil" class="profile__image" />
+              
+              <button class="profile__edit-button">
+                <img src="./images/editorLapiz.jpg" alt="" class="profile__edit-icon" /> 
+              </button>         
+            </div>
+
             <!-- contenedor de perfil de usuario -->
             <div class="profile__text-container">
-              <p class="profile__name">Jesús HerLop</p>
+              <p class="profile__name"></p>
               <!-- boton para abrir el formulario -->
               <button class="profile__btn"></button>
-              <p class="profile__job">Ingeníero</p> 
+              <p class="profile__job"></p>
             </div>
 
             <!-- boton para agregar -->
@@ -54,6 +63,7 @@
           <!-- contenedor principal de cards -->
           <div class="card__containers"></div>
         </section>
+
         <!-- modal para la ventana emergente de la imagen -->
         <section class="modal">
           <div class="modal__overlay"></div>
@@ -79,26 +89,25 @@
             <!-- FORMULARIO -->
             <form class="form__popup" novalidate>
               <fieldset class="form__date">
-                  <input
-                    type="text"
-                    name="nameInput"
-                    id="nameInput"
-                    placeholder=""
-                    class="form__input"
-                    required
-                  />
-                  <span class="nameInput-error form__input-error"></span>
-                
-                  <input
-                    type="text"
-                    name="jobInput"
-                    id="jobInput"
-                    placeholder=""
-                    class="form__input"
-                    required
-                  />
-                  <span class="jobInput-error form__input-error"></span>
-                
+                <input
+                  type="text"
+                  name="nameInput"
+                  id="nameInput"
+                  placeholder=""
+                  class="form__input"
+                  required
+                />
+                <span class="nameInput-error form__input-error"></span>
+
+                <input
+                  type="text"
+                  name="jobInput"
+                  id="jobInput"
+                  placeholder=""
+                  class="form__input"
+                  required
+                />
+                <span class="jobInput-error form__input-error"></span>
               </fieldset>
 
               <!-- boton para guardar -->
@@ -132,6 +141,6 @@
         <p></p>
       </footer>
     </div>
-    <script type="module" src="./scripts/index.js" ></script>
+    <script type="module" src="./scripts/index.js"></script>
   </body>
 </html>

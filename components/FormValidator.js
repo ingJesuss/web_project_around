@@ -5,6 +5,7 @@ export class FormValidator {
   constructor(data, formElement) {
     this.config = data;
     this.formElement = formElement;
+
   }
 
   /* metodo que muestra el elemento erroneo y notifica al usuario */
@@ -34,7 +35,17 @@ export class FormValidator {
   }
   
   _hasInputInvalid(inputList) {
-    return inputList.every((inputElement) => inputElement.validity.valid);
+    
+    const serchTitle = document.querySelector(".form__title").textContent;
+
+    if(serchTitle === "Cambiar foto de perfil"){
+
+      return inputList.some((inputElement) => inputElement.validity.valid)
+    }
+    else{
+
+      return inputList.every((inputElement) => inputElement.validity.valid);
+    }
   }
 
   _toggleButtonState(inputList) {
@@ -62,17 +73,23 @@ export class FormValidator {
         this._checkInputInvalid(inputElement);
       });
     });
+
     this.formElement.addEventListener("submit", (e) => {
       e.preventDefault();
-     this._disabledButton();
+     
     });
   }
-  _disabledButton() {
+  //sea hace el metodo publico para poder usar en submit en UTILS 
+  disabledButton() {
     const buttonElement = this.formElement.querySelector(
       this.config.submitButtonSelector
     ); 
+    
+      
     buttonElement.classList.add(this.config.inactiveButtonClass);
     buttonElement.disabled = true;
+   
+    
   }
  
   enableValidation() {

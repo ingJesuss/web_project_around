@@ -3,6 +3,7 @@ export class Popup {
     this.popup = document.querySelector(popupSelector),
     this.formOverlay = document.querySelector(".form__overlay");
     this.buttonClose = document.querySelector(".form__close-btn");
+    this.buttonSubmit = document.querySelector(".form__submit-btn")
   }
 
   open() {
@@ -39,6 +40,6 @@ export class Popup {
       this.buttonClose.addEventListener("click", () => {
         this.close();
     });
-  
+
   }
 }

@@ -76,13 +76,19 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 1.5;  
-  border: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  transition: all .4s cubic-bezier(.175, .885, .32, 1.275);
+
 }
 .form__input:focus {
-  outline-color: #0d9c60e0;
-  outline-style: groove;
-  outline-width: 3px;
+  outline: none;
+  border-color: transparent;
+  box-shadow: 0 0 0 2px #4ecdc4, 0 0 20px #4ecdc4;
+  
+  color: #06455e8e;
+  font-size: medium;
+  font-weight: 600;
+  transform: translateY(-2px);
 }
 
 

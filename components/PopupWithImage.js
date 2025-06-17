@@ -13,6 +13,7 @@ export class PopupWithImage extends Popup {
     this.modalContainer = document.querySelector(".modal");
   }
 
+  //muestra la Card en el modal overlay
   open(link, description, title) {
     super.open();
     this.modalImage.src = link;
@@ -20,12 +21,12 @@ export class PopupWithImage extends Popup {
     this.modalTitle.textContent = title;
     this.modalImage.classList.add("modal__card-image");
     this.modalCard.prepend(this.modalImage);    
-  }
+  } 
   
   close() {
     super.close();
     this.modalImage.remove();
-  }
+  } 
 
   /* Para que la pantalla suba automaticamente cuando se abra el modal */
   scrollToTop() {
