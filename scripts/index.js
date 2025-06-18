@@ -15,13 +15,11 @@ import {
   openPopupEditImage,
   popupProfileImageButton,
   btnChangeImage,
-  
   formPopup,
 } from "./utils.js";
 
-export const popupConfirm = new PopupWithConfirmation (".form");
+export const popupConfirm = new PopupWithConfirmation(".form");
 popupConfirm.setEventListeners();
-
 
 /* llamado de metodo, usando la instancia de api que se encuentra en la clase Api.js que trae los  datos de Usuario */
 api.getUserInfo().then((data) => {
@@ -45,8 +43,7 @@ api.getInitialCards().then((initialCards) => {
           card,
           "#card__template",
           handleCardClick,
-          card.isLiked,
-         
+          card.isLiked
         );
         const createCard = cardElement.generateCard();
         rendererCard.addItem(createCard);
@@ -57,8 +54,6 @@ api.getInitialCards().then((initialCards) => {
 
   rendererCard.renderItems();
 });
-
-
 
 //instancia de la clase UserInfo, donde se le pasan los selectores de los elementos que se van a modificar.
 export const infoUser = new UserInfo({
@@ -71,11 +66,9 @@ export const infoUser = new UserInfo({
 export const popupWithForm = new PopupWithForm(".form", submitForm);
 popupWithForm.setEventListeners();
 
-
 openPopupBtn.addEventListener("click", openPopupProfile);
 btnChangeImage.addEventListener("click", openPopupNewImage);
 popupProfileImageButton.addEventListener("click", openPopupEditImage);
-
 
 /*nueva instancia de formulario declaramos y asignamos un valor a la variable, donde pasamos la nueva instancia importada de FormValidator y como parametro pasamos config, que es la propiedad this.config=data y el segundo argumento es el nombre del formulario. 
 2.-Despues llamamos al método enableValidation() en la instancia formvalidator

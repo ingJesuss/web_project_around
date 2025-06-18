@@ -2,7 +2,7 @@ class Api {
   constructor({ url, headers }) {
     (this.url = url), (this.headers = headers);
   }
-//metodo para obtener la infromación del Usuario
+  //metodo para obtener la infromación del Usuario
   getUserInfo() {
     return fetch(`${this.url}/users/me`, {
       headers: this.headers,
@@ -55,7 +55,7 @@ class Api {
         return data;
       });
   }
-//metodo para generar una nueva Card
+  //metodo para generar una nueva Card
   postNewCard({ name, link }) {
     return fetch(`${this.url}/cards`, {
       method: "POST",
@@ -70,7 +70,6 @@ class Api {
         }
       })
       .then((data) => {
-       
         return data;
       });
   }
@@ -89,51 +88,48 @@ class Api {
     });
   }
 
-
-//metodo para likes
+  //metodo para likes
   putLikeCard(cardId) {
-    return fetch(`${this.url}/cards/${cardId}/likes`,{
-      method : "PUT",
-      headers : this.headers,
+    return fetch(`${this.url}/cards/${cardId}/likes`, {
+      method: "PUT",
+      headers: this.headers,
     }).then((res) => {
-      if(res.ok){
+      if (res.ok) {
         return res.json();
-      }else{
-        throw new Error ("Error al dar like codigo: " + res.status)
+      } else {
+        throw new Error("Error al dar like codigo: " + res.status);
       }
-    }) 
+    });
   }
-//metodo para quitar likes
-  deleteLikeCard(cardId){
-    return fetch(`${this.url}/cards/${cardId}/likes`,{
-      method:"DELETE",
-      headers:this.headers,
+  //metodo para quitar likes
+  deleteLikeCard(cardId) {
+    return fetch(`${this.url}/cards/${cardId}/likes`, {
+      method: "DELETE",
+      headers: this.headers,
     }).then((res) => {
-      if(res.ok){
-        return res.json()
-      }else{
-        throw new Error ("Error al quitar like codigo : " + res.status)
+      if (res.ok) {
+        return res.json();
+      } else {
+        throw new Error("Error al quitar like codigo : " + res.status);
       }
-    })
+    });
   }
 
   //metodo para cambiar foto de perfil
-updateAvatar({avatar}){
-  return fetch(`${this.url}/users/me/avatar`,{
-    method :"PATCH",
-    headers : this.headers,
-    body : JSON.stringify({avatar})
-  }).then((res) => {
-    if(res.ok){
-      return res.json()
-    }else{
-      throw new Error ("Error al cargar imagen codigo:" + res.status)
-    }
-  })
-  
+  updateAvatar({ avatar }) {
+    return fetch(`${this.url}/users/me/avatar`, {
+      method: "PATCH",
+      headers: this.headers,
+      body: JSON.stringify({ avatar }),
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      } else {
+        throw new Error("Error al cargar imagen codigo:" + res.status);
+      }
+    });
+  }
 }
-}
-    
 
 export const api = new Api({
   url: "https://around-api.es.tripleten-services.com/v1",

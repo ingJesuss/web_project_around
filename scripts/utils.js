@@ -180,7 +180,6 @@ export function openPopupConfirmation() {
   formButton.disabled = false;
   nameInput.style.display = "none";
   jobInput.style.display = "none";
-  
 }
 
 /* funcion que se encarga de enviar el formulario, dependiendo del valor del titulo 
@@ -199,7 +198,6 @@ export function submitForm() {
   if (serchTitle === "Cambiar foto de perfil") {
     updateProfileImage();
   }
- 
 
   //retrasamos la ejecuacion de submit
   setTimeout(() => {

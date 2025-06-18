@@ -23,13 +23,12 @@ export class Card {
 
   setEventListener() {
     this.buttonLike.addEventListener("click", () => this.handleLike());
-      this.buttonDelete.addEventListener("click", () => {
+    this.buttonDelete.addEventListener("click", () => {
       openPopupConfirmation();
-      popupConfirm.setSubmitAction(()=> this.handleDelete()); 
-      popupConfirm.open()
-    }); 
-      
-  
+      popupConfirm.setSubmitAction(() => this.handleDelete());
+      popupConfirm.open();
+    });
+
     this.cardImage.addEventListener("click", () => {
       this.handleCardClick(this.link, this.description, this.name);
     });
@@ -55,7 +54,6 @@ export class Card {
   }
 
   handleDelete() {
-  
     api
       .deleteCard(this._id)
       .then(() => {

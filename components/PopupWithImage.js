@@ -1,7 +1,6 @@
 import { Popup } from "./Popup.js";
 
-
-//clase hija de popup 
+//clase hija de popup
 export class PopupWithImage extends Popup {
   constructor(popupSelector) {
     super(popupSelector);
@@ -20,13 +19,13 @@ export class PopupWithImage extends Popup {
     this.modalImage.alt = description;
     this.modalTitle.textContent = title;
     this.modalImage.classList.add("modal__card-image");
-    this.modalCard.prepend(this.modalImage);    
-  } 
-  
+    this.modalCard.prepend(this.modalImage);
+  }
+
   close() {
     super.close();
     this.modalImage.remove();
-  } 
+  }
 
   /* Para que la pantalla suba automaticamente cuando se abra el modal */
   scrollToTop() {
@@ -34,8 +33,6 @@ export class PopupWithImage extends Popup {
   }
 
   setEventListeners() {
-    
-
     this.modalBtnClose.addEventListener("click", () => {
       this.modalContainer.classList.remove("open__popup");
       this.modalImage.remove();
